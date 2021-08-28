@@ -431,6 +431,8 @@ function generateMetadataObject(id, images) {
 }
 
 async function writeMetadata() {
+if(config.metaData.splitFiles)
+  {
     let metadata_output_dir = outputPath + "metadata/"
     if (!fs.existsSync(metadata_output_dir)) {
       fs.mkdirSync(metadata_output_dir, { recursive: true });
@@ -438,6 +440,10 @@ async function writeMetadata() {
     for (var key in metaData){
       await writeFile(metadata_output_dir + key, JSON.stringify(metaData[key]));
     }
+  }else
+  {
+    await writeFile(outputPath + 'metadata.json', JSON.stringify(metaData));
+  }
 }
 
 async function loadConfig() {
