@@ -413,6 +413,21 @@ function existCombination(contains) {
   return exists;
 }
 
+async function metadataURL() {
+  if (Object.keys(config.metaData).length !== 0) return;
+  let responses = await inquirer.prompt([
+    {
+      type: 'input',
+      name: 'metadataImageUrl',
+      message: 'What should be the image url? (Generated format is URL/ID)',
+    },
+  ]);
+  let lastChar = responses.metadataImageUrl.slice(-1);
+  if (lastChar === '/') config.imageUrl = responses.metadataImageUrl;
+  else config.imageUrl = responses.metadataImageUrl + '/';
+}
+
+
 function generateMetadataObject(id, images) {
   metaData[id] = {
     name: config.metaData.name + ' #' + id,
