@@ -97,7 +97,7 @@ async function main() {
     await sleep(1);
     await metadataURL();
     await sleep(1);
-    awaitupdateMetadataURL();
+    await updateMetadataURL();
     await sleep(1);
 
     if (config.generateMetadata) {   
