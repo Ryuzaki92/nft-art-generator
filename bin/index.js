@@ -97,8 +97,8 @@ async function main() {
     await sleep(1);
     await metadataURL();
     await sleep(1);
-    await updateMetadataURL();
-    sleep(1);
+    awaitupdateMetadataURL();
+    await sleep(1);
 
     if (config.generateMetadata) {   
         const writingMetadata = ora('Exporting metadata');
@@ -446,6 +446,7 @@ function generateMetadataObject(id, images) {
 
 function updateMetadataURL()
 {
+    console.log("hello");
     for (let i = 0; i < metaData.lenght; i++)
     {
         metaData[i].image = config.imageUrl + i + ".png";
