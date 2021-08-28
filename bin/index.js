@@ -447,10 +447,10 @@ function generateMetadataObject(id, images) {
 function updateMetadataURL()
 {
     console.log("hello");
-    for (let i = 0; i < metaData.lenght; i++)
+    for (var key in metaData) 
     {
-        metaData[i].image = config.imageUrl + i + ".png";
-        console.log(metaData[i]);
+        metaData[key].image = config.imageUrl + i + ".png";
+        console.log(metaData[key]);
     }
 }
 
