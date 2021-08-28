@@ -11,7 +11,7 @@
   "author": "NotLuksus",
   "license": "MIT",
   "bin": {
-    "nft-generate": "./bin/index.js"
+    "nft-generate2": "./bin/index.js"
   },
   "dependencies": {
     "boxen": "^5.0.1",
