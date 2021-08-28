@@ -446,9 +446,9 @@ function generateMetadataObject(id, images) {
 
 function updateMetadataURL()
 {
-    foreach(id in metaData)
+    for (let i = 0; i < metaData.lenght; i++)
     {
-        metaData[id].image = config.imageUrl + id + ".png";
+        metaData[i].image = confid.imageurl + i + ".png";
     }
 }
 
