@@ -446,11 +446,9 @@ function generateMetadataObject(id, images) {
 
 function updateMetadataURL()
 {
-    console.log("hello");
     for (var key in metaData) 
     {
         metaData[key].image = config.imageUrl + key + ".png";
-        console.log(metaData[key]);
     }
 }
 
