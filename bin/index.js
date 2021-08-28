@@ -94,10 +94,9 @@ async function main() {
     generatingImages.succeed('All images generated!');
     generatingImages.clear();
 
-    await sleep(2);
-    await generateMetadataURLPrompt();
+    await sleep(1);
     await metadataURL();
-    await sleep(2);
+    await sleep(1);
 
     if (config.generateMetadata) {   
         const writingMetadata = ora('Exporting metadata');
@@ -252,7 +251,6 @@ async function generateMetadataURLPrompt() {
 }
 
 async function metadataURL() {
-    if (Object.keys(config.metaData).length !== 0) return;
     let responses = await inquirer.prompt([
         {
             type: 'input',
