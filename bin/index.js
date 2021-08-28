@@ -244,7 +244,7 @@ async function metadataURL() {
             message: 'What should be the image url? (Generated format is URL/ID)',
         },
     ]);
-    console.log(reposne);
+    console.log(response);
     let lastChar = response.metadataImageUrl.slice(-1);
     if (lastChar === '/') config.imageUrl = response.metadataImageUrl;
     else config.imageUrl = response.metadataImageUrl + '/';
