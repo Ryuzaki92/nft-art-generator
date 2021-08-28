@@ -448,7 +448,7 @@ function updateMetadataURL()
 {
     foreach(id in metaData)
     {
-        metaData.image = config.imageUrl + id + ".png";
+        metaData[id].image = config.imageUrl + id + ".png";
     }
 }
 
