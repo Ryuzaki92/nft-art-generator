@@ -56,7 +56,7 @@ console.log(
         'Made with '
     ) +
       chalk.red('❤') +
-      chalk.blue(' by NotLuksus'),
+      chalk.blue(' asdasdw'),
     { borderColor: 'red', padding: 3 }
   )
 );
