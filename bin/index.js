@@ -236,31 +236,19 @@ async function metadataSettings() {
     config.metaData.splitFiles = responses.splitFiles;
 }
 
-async function generateMetadataURLPrompt() {
-    if (config.generateMetadata !== null) return;
-    let { url } = await inquirer.prompt([
-        {
-            type: 'input',
-            name: 'metadataImageUrl',
-            message: 'What should be the image url? (Generated format is URL/ID)',
-        },
-    ]);
-    let lastChar = responses.metadataImageUrl.slice(-1);
-    if (lastChar === '/') config.imageUrl = responses.metadataImageUrl;
-    else config.imageUrl = url.metadataImageUrl + '/';
-}
-
 async function metadataURL() {
-    let responses = await inquirer.prompt([
+    let response = await inquirer.prompt([
         {
             type: 'input',
             name: 'metadataImageUrl',
             message: 'What should be the image url? (Generated format is URL/ID)',
         },
     ]);
-    let lastChar = responses.metadataImageUrl.slice(-1);
-    if (lastChar === '/') config.imageUrl = responses.metadataImageUrl;
-    else config.imageUrl = responses.metadataImageUrl + '/';
+    console.log(reposne);
+    let lastChar = response.metadataImageUrl.slice(-1);
+    if (lastChar === '/') config.imageUrl = response.metadataImageUrl;
+    else config.imageUrl = response.metadataImageUrl + '/';
+    console.log(config.imageUrl);
 }
 
 //SELECT THE ORDER IN WHICH THE TRAITS SHOULD BE COMPOSITED
