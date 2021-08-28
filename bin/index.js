@@ -93,7 +93,9 @@ async function main() {
   await sleep(2);
   generatingImages.succeed('All images generated!');
   generatingImages.clear();
+  
   if (config.generateMetadata) {
+    await metadataURL();
     const writingMetadata = ora('Exporting metadata');
     writingMetadata.color = 'yellow';
     writingMetadata.start();
@@ -221,11 +223,6 @@ async function metadataSettings() {
       message: 'What should be the description?',
     },
     {
-      type: 'input',
-      name: 'metadataImageUrl',
-      message: 'What should be the image url? (Generated format is URL/ID)',
-    },
-    {
       type: 'confirm',
       name: 'splitFiles',
       message: 'Should JSON metadata be split in multiple files?',
@@ -234,6 +231,17 @@ async function metadataSettings() {
   config.metaData.name = responses.metadataName;
   config.metaData.description = responses.metadataDescription;
   config.metaData.splitFiles = responses.splitFiles;
+}
+
+async function metadataURL() {
+  if (Object.keys(config.metaData).length !== 0) return;
+  let responses = await inquirer.prompt([
+    {
+      type: 'input',
+      name: 'metadataImageUrl',
+      message: 'What should be the image url? (Generated format is URL/ID)',
+    },
+  ]);
   let lastChar = responses.metadataImageUrl.slice(-1);
   if (lastChar === '/') config.imageUrl = responses.metadataImageUrl;
   else config.imageUrl = responses.metadataImageUrl + '/';
@@ -412,21 +420,6 @@ function existCombination(contains) {
   });
   return exists;
 }
-
-async function metadataURL() {
-  if (Object.keys(config.metaData).length !== 0) return;
-  let responses = await inquirer.prompt([
-    {
-      type: 'input',
-      name: 'metadataImageUrl',
-      message: 'What should be the image url? (Generated format is URL/ID)',
-    },
-  ]);
-  let lastChar = responses.metadataImageUrl.slice(-1);
-  if (lastChar === '/') config.imageUrl = responses.metadataImageUrl;
-  else config.imageUrl = responses.metadataImageUrl + '/';
-}
-
 
 function generateMetadataObject(id, images) {
   metaData[id] = {
