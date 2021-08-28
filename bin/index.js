@@ -448,7 +448,8 @@ function updateMetadataURL()
 {
     for (let i = 0; i < metaData.lenght; i++)
     {
-        metaData[i].image = confid.imageurl + i + ".png";
+        metaData[i].image = config.imageUrl + i + ".png";
+        console.log(metaData[i]);
     }
 }
 
