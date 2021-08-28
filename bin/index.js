@@ -97,6 +97,8 @@ async function main() {
     await sleep(1);
     await metadataURL();
     await sleep(1);
+    await updateMetadataURL();
+    sleep(1);
 
     if (config.generateMetadata) {   
         const writingMetadata = ora('Exporting metadata');
@@ -440,6 +442,14 @@ function generateMetadataObject(id, images) {
             value: names[fileToMap],
         });
     });
+}
+
+function updateMetadataURL()
+{
+    foreach(id in metaData)
+    {
+        metaData.image = config.imageUrl + id + ".png";
+    }
 }
 
 async function writeMetadata() {
