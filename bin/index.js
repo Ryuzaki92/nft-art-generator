@@ -1,4 +1,4 @@
-#!/usr/bin / env node
+#!/usr/bin/env node
 
 //TODO
 //CHECK FOR TRAILING SLASHES ON ALL INPUTS
